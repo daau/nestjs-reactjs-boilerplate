@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  client:
+    build:
+      context: ./client
+      target: client-dev
+    ports:
+      - 5173:5173
+    volumes:
+      - ./client:/usr/local/app
+      - /usr/local/app/node_modules
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+      target: backend-dev
+    volumes:
+      - ./backend:/usr/local/app
+      - /usr/local/app/node_modules
+    ports:
+      - 3000:3000
+      - 9229:9229
