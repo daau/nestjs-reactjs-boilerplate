@@ -9,7 +9,7 @@ COPY package.json package-lock.json ./
 FROM backend-base AS backend-dev
 RUN --mount=type=cache,id=npm,target=/root/.npm \
     npm ci
-EXPOSE 9229
+EXPOSE 9229 3000
 CMD ["npm", "run", "start:debug"]
 
 # Stage: backend-prod
