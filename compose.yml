@@ -2,6 +2,8 @@ version: "3.8"
 
 services:
   client:
+    env_file:
+      - ./client/.env.development
     build:
       context: ./client
       target: client-dev
@@ -14,6 +16,8 @@ services:
       - backend
 
   backend:
+    env_file:
+      - ./backend/.env.development
     build:
       context: ./backend
       target: backend-dev
@@ -23,3 +27,26 @@ services:
     ports:
       - 3000:3000
       - 9229:9229
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:16
+    env_file:
+      - .env.postgres.development
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    env_file:
+      - .env.pgadmin.development
+    ports:
+      - 5050:80
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
