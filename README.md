@@ -1,6 +1,6 @@
 # NestJS + React boilerplate
 
-Boilerplate for a modern web application. Easy to setup locally and deploy to production.
+Boilerplate for a modern web application. Ready to use locally and deploy to production, batteries included.
 
 ### Tools
 
@@ -10,10 +10,10 @@ Boilerplate for a modern web application. Easy to setup locally and deploy to pr
 - PostgreSQL
 - MikroORM
 - Docker
-- TailwindCSS
-- Shadcn/UI
+- TailwindCSS and Shadcn/UI
 - TypeScript
-- Backend remotely debuggable via Chrome DevTools, VSCode, etc.
+- Configured remote debugging support for backend via Chrome devtools / VSCode
+- Hot reload for both the frontend and backend
 
 ## 🛠️ Development Setup
 
@@ -23,15 +23,24 @@ Boilerplate for a modern web application. Easy to setup locally and deploy to pr
 - Docker and Docker Compose
 - npm
 
+### Setup the environment variables
+
+- `.env.postgres.development`: PostgreSQL database connection settings
+- `.env.pgadmin.development`: pgAdmin web interface credentials
+- `backend/.env.development`: Backend API configuration and database connection
+- `client/.env.development`: Frontend API endpoint configuration
+
+No additional configuration is needed as the example files are pre-configured with development defaults. Remove the `.example` suffix from the files and you're ready to go
+
 ### Running with Docker (Recommended)
 
 1. Clone the repository
-2. Start the application using Docker Compose:
+2. Start the application using Docker Compose. This will setup your frontend, backend, database, and pgAdmin containers:
    ```bash
    docker compose build
    docker compose up
    ```
-3. Create and run migrations (assuming you have a PostgreSQL database running):
+3. Create and run migrations via the docker container
    ```bash
    docker compose run backend npm run migration:create
    docker compose run backend npm run migration:up
@@ -56,7 +65,7 @@ Boilerplate for a modern web application. Easy to setup locally and deploy to pr
    npm install
    ```
 
-3. Create and run migrations:
+3. Create and run migrations (assuming you have a PostgreSQL database running):
 
    ```bash
    npm run migration:create
