@@ -7,9 +7,13 @@ services:
       target: client-dev
     ports:
       - 5173:5173
-    volumes:
-      - ./client:/usr/local/app
-      - /usr/local/app/node_modules
+    develop:
+      watch:
+        - path: ./client/src
+          action: sync
+          target: /usr/local/app/src
+        - path: ./client/package.json
+          action: rebuild
     depends_on:
       - backend
 

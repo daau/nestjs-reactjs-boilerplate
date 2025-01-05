@@ -38,7 +38,7 @@ No additional configuration is needed as the example files are pre-configured wi
 2. Start the application using Docker Compose. This will setup your frontend, backend, database, and pgAdmin containers:
    ```bash
    docker compose build
-   docker compose up
+   docker compose watch
    ```
 3. Create and run migrations via the docker container
    ```bash
