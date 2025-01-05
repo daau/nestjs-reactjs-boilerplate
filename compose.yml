@@ -12,6 +12,9 @@ services:
         - path: ./client/src
           action: sync
           target: /usr/local/app/src
+        - path: ./client/public
+          action: sync
+          target: /usr/local/app/public
         - path: ./client/package.json
           action: rebuild
     depends_on:
