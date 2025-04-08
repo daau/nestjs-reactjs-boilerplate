@@ -21,7 +21,11 @@
     "migration:create": "env-cmd -f .env.development mikro-orm migration:create",
     "migration:up": "env-cmd -f .env.development mikro-orm migration:up",
     "migration:down": "env-cmd -f .env.development mikro-orm migration:down",
-    "migration:list": "env-cmd -f .env.development mikro-orm migration:list"
+    "migration:list": "env-cmd -f .env.development mikro-orm migration:list",
+    "migration:fresh": "env-cmd -f .env.development mikro-orm migration:fresh",
+    "migration:check": "env-cmd -f .env.development mikro-orm migration:check",
+    "migration:pending": "env-cmd -f .env.development mikro-orm migration:pending",
+    "seeder:run": "env-cmd -f .env.development mikro-orm seeder:run"
   },
   "dependencies": {
     "@mikro-orm/cli": "^6.4.2",
