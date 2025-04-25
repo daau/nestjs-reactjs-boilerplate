@@ -49,6 +49,14 @@ No additional configuration is needed as the example files are pre-configured wi
    - Frontend: http://localhost:5173
    - Backend: http://localhost:3000/api
 
+### Rebuilding your backend when installing new packages
+
+```bash
+docker compose build backend
+OR, to directly update your backend
+docker compose exec backend npm install ...
+```
+
 ### Running Without Docker
 
 #### Backend (NestJS)
